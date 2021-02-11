@@ -36,6 +36,18 @@
 				}
 				document.getElementById("H1").innerHTML = "You got " + CG + " coins";
 			}
+			function Multiply(){
+				var v = Random(1, 10);
+				var y = Number(document.getElementById("score").innerHTML) * v;
+				var x = getCookie("COINS") + y;
+				setCookie("COINS", x, 10000000000000000000000000000);
+				document.getElementById("x").innerHTML = x + " coins gain, " + v " multipled.";
+			}
+			function Continue(){
+				var x = getCookie("COINS") + Number(document.getElementById("score").innerHTML);
+				setCookie("COINS", x, 10000000000000000000000000000);
+				window.location = "/GMenu";
+			}
 			function G_Q(){
 				z = [" + ", " - ", " x "];
 				c = RO(z);
@@ -98,6 +110,7 @@
 		</div>
 		<div id="COINS" style="display: none;">
 			<h1 id="H1">You got unknown coins</h1>
+			<p id="x"></p>
 			<button onclick="Multiply()" id="Multiply">Multiply for 100 coins</button>
 			<button onclick="Continue()"></button>
 		</div>
