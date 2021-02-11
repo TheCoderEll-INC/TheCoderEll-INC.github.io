@@ -24,8 +24,10 @@
       <a href="/GMenu">Games</a>
     </main>
     <footer class="navbar">
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
-      <a href="#" onclick="signOut();">Sign out</a>
+      <ul>
+        <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
+        <li style="float:right; margin:10px"><a href="#" onclick="signOut();">Sign out</a></li>
+      </ul>
     </footer>
     <script>
       function onSignIn(googleUser) {
