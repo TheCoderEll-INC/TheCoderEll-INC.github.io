@@ -37,11 +37,15 @@
 				document.getElementById("H1").innerHTML = "You got " + CG + " coins";
 			}
 			function Multiply(){
-				var v = Random(1, 10);
-				var y = Number(document.getElementById("score").innerHTML) * v;
-				var x = getCookie("COINS") + y;
-				setCookie("COINS", x, 10000000000000000000000000000);
-				document.getElementById("x").innerHTML = x + " coins gain";
+				if (getCookie("COINS") >= 100){
+					var v = Random(1, 10);
+					var y = Number(document.getElementById("score").innerHTML) * v;
+					var x = Number(getCookie("COINS")) + y;
+					setCookie("COINS", x, 10000000000000000000000000000);
+					var z = Number(getCookie("COINS")) - 100;
+					setCookie("COINS", z, 10000000000000000000000000000);
+					document.getElementById("x").innerHTML = x + " coins gain";
+				}
 			}
 			function Continue(){
 				var x = getCookie("COINS") + Number(document.getElementById("score").innerHTML);
