@@ -14,7 +14,7 @@
 				document.getElementById("GAME").style = "display: block";
 				Timer_start()
 				setTimeout(() => { Timer_game(); G_Q(); document.getElementById("G").style = "display: block";}, 5000)
-				setTimeout(() => { Timer_game(); G_Q(); document.getElementById("Start").style = "display: block"; document.getElementById("GAME").style = "display: none"; document.getElementById("G").style = "display: none"; alert("Score: " + document.getElementById("score").innerHTML);}, 67000)
+				setTimeout(() => { Timer_game(); G_Q(); document.getElementById("GAME").style = "display: none"; document.getElementById("G").style = "display: none"; COINS(document.getElementById("score").innerHTML);}, 67000)
 			}
 			function Timer_game(){
 				if (a != -1){
@@ -28,6 +28,13 @@
 			}
 			function Random(r, t){
 				return Math.floor(Math.random() * t) + r;
+			}
+			function COINS(CG){
+				document.getElementById("COINS").style = "display: block";
+				if (getCookie("COINS") <= 100){
+					document.getElementById("Multiply").style = "backgroundColor: rgba(0,0,0,0.4)";
+				}
+				document.getElementById("H1").innerHTML = "You got " + CG + " coins";
 			}
 			function G_Q(){
 				z = [" + ", " - ", " x "];
@@ -88,6 +95,11 @@
 			</div>
 			<p id="ans" style="display: none;"></p>
 			<p id="score" style="display: none;">0</p>
+		</div>
+		<div id="COINS" style="display: none;">
+			<h1 id="H1">You got unknown coins</h1>
+			<button onclick="Multiply()" id="Multiply">Multiply for 100 coins</button>
+			<button onclick="Continue()"></button>
 		</div>
 		<script>
 			var input = document.getElementById("A");
