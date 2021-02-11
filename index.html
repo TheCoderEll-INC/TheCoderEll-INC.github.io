@@ -17,6 +17,7 @@
     </main>
     <footer>
       <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a href="#" onclick="signOut();">Sign out</a>
     </footer>
     <script>
       function onSignIn(googleUser) {
@@ -28,6 +29,13 @@
         setCookie("Name", profile.getName(), 10000000000000000000000000);
         setCookie("IMG", profile.getImageUrl(), 10000000000000000000000000);
       }
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
+      }
+  
     </script>
   </body>
 </html>
