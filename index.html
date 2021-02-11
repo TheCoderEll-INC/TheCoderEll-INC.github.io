@@ -3,6 +3,7 @@
   <head>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TheCoderEll-INC's web</title>
     <script src="js.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="708144741696-8fmsd4c5gljihcdpuv2gssbspgi84fgk.apps.googleusercontent.com">
@@ -24,17 +25,6 @@
         float: left;
       }
       
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      
-      li a:hover:not(.active) {
-        background-color: #111;
-      }
     </style>
   </head>
   <body>
@@ -48,7 +38,7 @@
     <footer class="navbar">
       <ul>
         <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
-        <li style="float:right; margin:10px"><a href="#" onclick="signOut();">Sign out</a></li>
+        <li style="float:right; margin:10px"><button onclick="signOut();">Sign out</button></li>
       </ul>
     </footer>
     <script>
