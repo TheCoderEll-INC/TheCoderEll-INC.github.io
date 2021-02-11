@@ -1,0 +1,101 @@
+<!DOCTYPEhtml>
+<html lang="en">
+	<head>
+		<title>TheCoderEll web</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			var a = 60
+			var b = 3
+			
+			function start_game(){
+				document.getElementById("Start").style = "display: none";
+				document.getElementById("GAME").style = "display: block";
+				Timer_start()
+				setTimeout(() => { Timer_game(); G_Q(); document.getElementById("G").style = "display: block";}, 5000)
+				setTimeout(() => { Timer_game(); G_Q(); document.getElementById("Start").style = "display: block"; document.getElementById("GAME").style = "display: none"; document.getElementById("G").style = "display: none"; alert("Score: " + document.getElementById("score").innerHTML);}, 67000)
+			}
+			function Timer_game(){
+				if (a != -1){
+					setTimeout(() => {  document.getElementById("T").innerHTML = "Time = " + String(a); a = a - 1; Timer_game() }, 1000);
+				}
+			}
+			function Timer_start(){
+				if (b != -1){
+					setTimeout(() => {  document.getElementById("T").innerHTML = "Time = " + String(b); b = b - 1; Timer_start() }, 1000);
+				}
+			}
+			function Random(r, t){
+				return Math.floor(Math.random() * t) + r;
+			}
+			function G_Q(){
+				z = [" + ", " - ", " x "];
+				c = RO(z);
+				if (c == " + "){
+					d = Random(1, 1000);
+					e = Random(1, 1000);
+					document.getElementById("Q").innerHTML = "Question = " + d + " + " + e + "?";
+					ans = d + e
+					document.getElementById("ans").innerHTML = ans;
+				} if (c == " - "){
+					d = Random(1, 1000);
+					e = Random(1, 1000);
+					if (e > d){
+						document.getElementById("Q").innerHTML = "Question = " + e + " - " + d + "?";
+						ans = e - d
+						document.getElementById("ans").innerHTML = ans;
+					} else{
+						document.getElementById("Q").innerHTML = "Question = " + d + " - " + e + "?";
+						ans = d - e
+						document.getElementById("ans").innerHTML = ans;
+					}
+				} if (c == " x "){
+					d = Random(1, 12);
+					e = Random(1, 12);
+					document.getElementById("Q").innerHTML = "Question = " + d + " x " + e + "?";
+					ans = d * e
+					document.getElementById("ans").innerHTML = ans;
+				}
+			}
+			function RO(R1O){
+				return R1O[Math.floor(Math.random()*R1O.length)]
+			}
+			function Done(){
+				ans = document.getElementById("ans").innerHTML;
+				ANS2 = document.getElementById('A').value;
+				if (ans == ANS2){
+					score = document.getElementById("score");
+					ns = Number(score.innerHTML) + 1
+					score.innerHTML = ns;
+					document.getElementById("S").innerHTML = "Score = " + score.innerHTML;
+				}
+				G_Q();
+				document.getElementById('A').value = "";
+			}
+		</script>
+	</head>
+	<body>
+		<button id="Start" onclick="start_game()">Start</button>
+		<div id="GAME" style="display: none;">
+			<h1>GAME</h1>
+			<p id="T">Time = </p>
+			<p id="Q">Question = </p>
+			<p id="S">Score = </p>
+			<div id="G" style="display: none;">
+				<input id="A">
+				<button id="Done" onclick="Done()">Done</button>
+			</div>
+			<p id="ans" style="display: none;"></p>
+			<p id="score" style="display: none;">0</p>
+		</div>
+		<script>
+			var input = document.getElementById("A");
+			input.addEventListener("keyup", function(event) {
+				if (event.keyCode === 13) {
+					event.preventDefault();
+					document.getElementById("Done").click();
+				}
+			});
+		</script>
+	</body>
+</html>
