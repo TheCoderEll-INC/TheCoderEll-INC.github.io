@@ -3,6 +3,9 @@
   <head>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="708144741696-8fmsd4c5gljihcdpuv2gssbspgi84fgk.apps.googleusercontent.com">
   </head>
   <body>
      <header>
@@ -10,10 +13,21 @@
        <p>Made by <a href="https://thecoderell.github.io">TheCoderEll</a></p>
     </header>
     <main>
-      
+      <a href="/GMenu">Games</a>
     </main>
     <footer>
-      
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </footer>
+    <script>
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        setCookie("Name", profile.getName(), 10000000000000000000000000);
+        setCookie("IMG", profile.getImageUrl(), 10000000000000000000000000);
+      }
+    </script>
   </body>
 </html>
