@@ -8,8 +8,6 @@
   </head>
   <body>
      <p id="demo"></p>
-     <button onclick="Claim">Claim</button>
-
 <script>
 // Set the date we're counting down to
 if (getCookie("Time") == ""){
@@ -45,7 +43,7 @@ var x = setInterval(function() {
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "<button onclick="Claim">Claim</button>";
+    document.getElementById("demo").innerHTML = "<button onclick="Claim()">Claim</button>";
   }
 }, 1000);
 </script>
