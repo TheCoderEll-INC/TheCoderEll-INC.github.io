@@ -44,7 +44,8 @@
 					setCookie("COINS", x, 10000000000000000000000000000);
 					var z = Number(getCookie("COINS")) - 100;
 					setCookie("COINS", z, 10000000000000000000000000000);
-					document.getElementById("x").innerHTML = x + " coins gain";
+					alert(x + " coins gain");
+					window.location = "/GMenu"
 				}
 			}
 			function Continue(){
