@@ -295,6 +295,15 @@ const main = () => {
 
 main();
 
-  </script>
+    <script>
+var input = document.getElementById("html");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 8) {
+   event.preventDefault();
+   window.location = "/GMenu";
+  }
+});
+</script>
+
   </body>
 </html>
