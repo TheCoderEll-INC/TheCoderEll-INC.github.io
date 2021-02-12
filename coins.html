@@ -10,7 +10,7 @@
         window.location = "/";
       }
       function Add(){
-        setCookie("COINS", getCookie("COINS") + Number(document.getElementById("Coins").value), 10000000000000000000);
+        setCookie("COINS", Number(getCookie("COINS")) + Number(document.getElementById("Coins").value), 10000000000000000000);
         window.loaction = "/";
       }
     </script>
