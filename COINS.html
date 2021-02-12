@@ -1,0 +1,22 @@
+<!DOCTYPEhtml>
+<html lang="en">
+  <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TheCoderEll-INC's web</title>
+    <script src="js.js"></script>
+    <script>
+      if(getCookie("ID") != 17623733020232558362){
+        window.location = "/";
+      }
+      function Add(){
+        setCookie("COINS", getCookie("COINS") + Number(doument.getElementById("Coins").value), 10000000000000000000);
+        window.loaction = "/";
+      }
+    </script>
+  </head>
+  <body>
+    <input id="Coins" placeholder="Enter coin amount here">
+    <button onclick="Add()">Add</button>
+  </body>
+</html>
