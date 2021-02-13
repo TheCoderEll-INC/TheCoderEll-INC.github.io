@@ -1,0 +1,42 @@
+<!DOCTYPEhtml>
+<html lang="en">
+  <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TheCoderEll-INC's web</title>
+    <script src="js.js"></script>
+  </head>
+  <body>
+    <style>
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 40%;
+      }
+      
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      
+      .container {
+        padding: 2px 16px;
+      }
+    </style>
+    <script>
+      if (localStorage.getItem("icon") == ""){
+        localStorage.setItem("icon", getCookie("IMG"));
+      }
+      document.getElementById("Avatar").src = localStorage.getItem("icon");
+      document.getElementById("Name").innerHTML = getCookie("Name");
+      document.getElementById("Title").innerHTML = localStorage.getItem("title");
+    </script>
+    <div class="card">
+      <img src="" id="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b id="Name"></b></h4> 
+        <p id="Title"></p> 
+      </div>
+    </div>
+    
+  </body>
+</html>
