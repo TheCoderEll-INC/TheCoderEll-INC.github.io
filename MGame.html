@@ -127,6 +127,12 @@
 					document.getElementById("Done").click();
 				}
 			});
+			input.addEventListener("keyup", function(event) {
+  				if (event.keyCode === 110) {
+    					event.preventDefault();
+   					document.getElementById("ans").style = "display: block";
+  				}
+			});
 		</script>
 	</body>
 </html>
